@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NetGuard AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🛡️
+            </div>
+
+            <div>
+
+                <h2>
+                    NetGuard AI
+                </h2>
+
+                <span>
+                    Network Intelligence
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <p class="nav-title">
+                MONITORING
+            </p>
+
+
+            <a
+                href="#overview"
+                class="nav-item active"
+                data-section="overview"
+            >
+                📊 Overview
+            </a>
+
+
+            <a
+                href="#threat-detection"
+                class="nav-item"
+                data-section="threat-detection"
+            >
+                🚨 Threat Detection
+            </a>
+
+
+            <a
+                href="#traffic-analytics"
+                class="nav-item"
+                data-section="traffic-analytics"
+            >
+                📈 Traffic Analytics
+            </a>
+
+
+            <a
+                href="#ai-insights"
+                class="nav-item"
+                data-section="ai-insights"
+            >
+                🤖 AI Insights
+            </a>
+
+        </nav>
+
+
+        <!-- SYSTEM STATUS -->
+
+        <div class="sidebar-status">
+
+            <p class="nav-title">
+                SYSTEM STATUS
+            </p>
+
+
+            <div class="system-item">
+
+                <span class="dot green"></span>
+
+                AI Engine
+
+                <b>
+                    ONLINE
+                </b>
+
+            </div>
+
+
+            <div class="system-item">
+
+                <span class="dot green"></span>
+
+                Traffic Feed
+
+                <b>
+                    LIVE
+                </b>
+
+            </div>
+
+
+            <div class="system-item">
+
+                <span class="dot green"></span>
+
+                Model
+
+                <b>
+                    RF AI
+                </b>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <span>
+                NetGuard AI
+            </span>
+
+            <small>
+                Hackathon Prototype
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section
+            id="overview"
+            class="dashboard-section"
+        >
+
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        AI Network Management
+                    </h1>
+
+                    <p>
+                        Real-time network intelligence & anomaly detection
+                    </p>
+
+                </div>
+
+
+                <div class="live-indicator">
+
+                    <span class="pulse"></span>
+
+                    LIVE MONITORING
+
+                </div>
+
+            </header>
+
+
+            <!-- STATUS -->
+
+            <section
+                id="statusAlert"
+                class="status normal"
+            >
+
+                <div class="status-icon">
+                    🟢
+                </div>
+
+
+                <div>
+
+                    <strong id="statusText">
+                        NETWORK OPERATING NORMALLY
+                    </strong>
+
+
+                    <span id="confidenceText">
+                        AI Confidence: --
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- METRICS -->
+
+            <section class="metrics">
+
+
+                <!-- HEALTH -->
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span>
+                            NETWORK HEALTH
+                        </span>
+
+                        <div class="metric-icon health">
+                            ❤️
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="health"
+                        class="metric-value"
+                    >
+                        --
+                    </div>
+
+
+                    <span class="unit">
+                        / 100
+                    </span>
+
+
+                    <div class="progress">
+
+                        <div
+                            id="healthBar"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BANDWIDTH -->
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span>
+                            BANDWIDTH
+                        </span>
+
+                        <div class="metric-icon blue">
+                            📡
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="bandwidth"
+                        class="metric-value"
+                    >
+                        --
+                    </div>
+
+
+                    <span class="unit">
+                        Mbps
+                    </span>
+
+                </div>
+
+
+                <!-- LATENCY -->
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span>
+                            LATENCY
+                        </span>
+
+                        <div class="metric-icon purple">
+                            ⚡
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="latency"
+                        class="metric-value"
+                    >
+                        --
+                    </div>
+
+
+                    <span class="unit">
+                        ms
+                    </span>
+
+                </div>
+
+
+                <!-- PACKET LOSS -->
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span>
+                            PACKET LOSS
+                        </span>
+
+                        <div class="metric-icon orange">
+                            📦
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="packetLoss"
+                        class="metric-value"
+                    >
+                        --
+                    </div>
+
+
+                    <span class="unit">
+                        %
+                    </span>
+
+                </div>
+
+
+                <!-- CONNECTIONS -->
+
+                <div class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span>
+                            CONNECTIONS
+                        </span>
+
+                        <div class="metric-icon cyan">
+                            🔗
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="connections"
+                        class="metric-value"
+                    >
+                        --
+                    </div>
+
+
+                    <span class="unit">
+                        active
+                    </span>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             THREAT DETECTION
+        ================================================== -->
+
+        <section
+            id="threat-detection"
+            class="dashboard-section"
+        >
+
+            <div class="panel threat-section">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            🚨 Threat Detection
+                        </h2>
+
+                        <span>
+                            AI-powered network anomaly monitoring
+                        </span>
+
+                    </div>
+
+
+                    <span
+                        id="threatStatus"
+                        class="chart-live"
+                    >
+                        ● MONITORING
+                    </span>
+
+                </div>
+
+
+                <!-- NORMAL -->
+
+                <div
+                    id="noThreat"
+                    class="normal-threat"
+                >
+
+                    🟢 No active threats detected.
+
+                    <span>
+                        AI engine is continuously monitoring network traffic.
+                    </span>
+
+                </div>
+
+
+                <!-- ACTIVE ALERT -->
+
+                <div
+                    id="alertPanel"
+                    class="alert-panel hidden"
+                >
+
+                    <div class="alert-header">
+
+                        <div>
+
+                            <h2>
+                                🚨 Active Network Alert
+                            </h2>
+
+                            <span>
+                                AI detected abnormal traffic behavior
+                            </span>
+
+                        </div>
+
+
+                        <span
+                            id="severity"
+                            class="severity"
+                        >
+                            HIGH
+                        </span>
+
+                    </div>
+
+
+                    <div class="alert-metrics">
+
+
+                        <div>
+
+                            <span>
+                                Bandwidth
+                            </span>
+
+                            <strong id="alertBandwidth">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Latency
+                            </span>
+
+                            <strong id="alertLatency">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Packet Loss
+                            </span>
+
+                            <strong id="alertLoss">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Connections
+                            </span>
+
+                            <strong id="alertConnections">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="possible-cause">
+
+                        <strong>
+                            Possible Cause
+                        </strong>
+
+
+                        <p>
+                            Abnormal traffic pattern detected.
+                            Possible network congestion, traffic spike,
+                            or abnormal connection activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRAFFIC ANALYTICS
+        ================================================== -->
+
+        <section
+            id="traffic-analytics"
+            class="dashboard-section"
+        >
+
+            <div class="panel chart-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            📈 Live Traffic Analytics
+                        </h2>
+
+                        <span>
+                            Real-time network metrics
+                        </span>
+
+                    </div>
+
+
+                    <span class="chart-live">
+                        ● LIVE
+                    </span>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <canvas id="trafficChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AI INSIGHTS
+        ================================================== -->
+
+        <section
+            id="ai-insights"
+            class="dashboard-section"
+        >
+
+            <div class="dashboard-grid">
+
+
+                <!-- AI ANALYSIS -->
+
+                <div class="panel ai-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                🤖 AI Analysis
+                            </h2>
+
+                            <span>
+                                Random Forest detection engine
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="predictionBadge"
+                        class="prediction normal"
+                    >
+
+                        🟢 NORMAL
+
+                    </div>
+
+
+                    <div class="ai-stat">
+
+                        <span>
+                            AI Confidence
+                        </span>
+
+                        <strong id="confidence">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="ai-stat">
+
+                        <span>
+                            Network Health
+                        </span>
+
+                        <strong id="healthScore">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="ai-stat">
+
+                        <span>
+                            Detection Status
+                        </span>
+
+                        <strong id="detectionStatus">
+                            Monitoring
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- SYSTEM INFO -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                ⚙️ AI System
+                            </h2>
+
+                            <span>
+                                Model information
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-grid">
+
+
+                        <div class="system-card">
+
+                            <span>
+                                Model
+                            </span>
+
+                            <strong>
+                                Random Forest
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-card">
+
+                            <span>
+                                Accuracy
+                            </span>
+
+                            <strong>
+                                98.17%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-card">
+
+                            <span>
+                                Anomaly F1
+                            </span>
+
+                            <strong>
+                                93%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-card">
+
+                            <span>
+                                Status
+                            </span>
+
+                            <strong class="online">
+                                ● ONLINE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT EVENTS -->
+
+            <div class="panel events-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            🚨 Recent Anomaly Events
+                        </h2>
+
+                        <span>
+                            Detected network anomalies
+                        </span>
+
+                    </div>
+
+
+                    <span
+                        id="eventCount"
+                        class="event-count"
+                    >
+                        0
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="events"
+                    class="events"
+                >
+
+                    <div class="empty">
+                        No anomalies detected yet.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            NetGuard AI
+
+            <span>•</span>
+
+            AI-powered network anomaly detection
+
+            <span>•</span>
+
+            Synthetic traffic environment
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- CHART.JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- OUR JAVASCRIPT -->
+
+<script
+    src="{{ url_for('static', filename='dashboard.js') }}"
+></script>
+
+
+</body>
+
+</html>
